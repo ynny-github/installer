@@ -1,15 +1,11 @@
 # Installer
 Installer to construct development environment
 
-## TODO
-+ [ ] chezmoiのinstallerを定期で更新するgithub actionsを追加する
-
-
 # Dotfiles
 
 ## How to init ?
 ```
-curl -sf https://raw.githubusercontent.com/ynny-github/dotfiles/main/init.sh | sh -s
+curl -sf https://raw.githubusercontent.com/ynny-github/installer/main/installer.sh | sh -s
 ```
 
 
