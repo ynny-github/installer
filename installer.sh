@@ -9,7 +9,7 @@ exec_cmd_with_sudo () {
 }
 
 do_exist_cmd () {
-    if type $1 /dev/null 2&>1; then
+    if type $1 &> /dev/null; then
         return 0
     else
         return 1
@@ -18,20 +18,15 @@ do_exist_cmd () {
 
 
 if [ -f /.dockerenv ]; then
-
-    if do_exist_cmd "apt" then
+    if do_exist_cmd "apt"; then
         exec_cmd_with_sudo apt update
         exec_cmd_with_sudo apt install -y fish
-    elif do_exist_cmd "yum" then
+    elif do_exist_cmd "yum"; then
         exec_cmd_with_sudo yum update
         exec_cmd_with_sudo yum install -y fish
     fi
-
 fi
 
-cd
-git clone --depth=1 https://github.com/ynny-github/installer.git
-cd ~/installer
 chmod +x chezmoi_installer
 ./chezmoi_installer.sh -- init --apply https://github.com/ynny-github/dotfiles.git
 
