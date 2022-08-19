@@ -16,6 +16,7 @@ do_exist_cmd () {
     fi
 }
 
+
 if [ -f /.dockerenv ]; then
 
     if do_exist_cmd "apt" then
@@ -28,5 +29,10 @@ if [ -f /.dockerenv ]; then
 
 fi
 
+cd
+git clone --depth=1 https://github.com/ynny-github/installer.git
+cd ~/installer
 chmod +x chezmoi_installer
 ./chezmoi_installer.sh -- init --apply https://github.com/ynny-github/dotfiles.git
+
+rm -rf ~/installer
