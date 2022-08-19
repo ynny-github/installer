@@ -27,7 +27,16 @@ if [ -f /.dockerenv ]; then
     fi
 fi
 
-chmod +x chezmoi_installer
-./chezmoi_installer.sh -- init --apply https://github.com/ynny-github/dotfiles.git
+cd
+git clone https://github.com/ynny-github/installer.git
+cd installer
+if [ $(uname -s) = "Darwin"]; then
+    brew install chezmoi
+    chezmoi init --apply https://github.com/ynny-github/dotfiles.git
+else
+    chmod +x chezmoi_installer
+    ./chezmoi_installer.sh -- init --apply https://github.com/ynny-github/dotfiles.git
+
+fi
 
 rm -rf ~/installer
