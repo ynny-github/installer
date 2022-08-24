@@ -29,11 +29,11 @@ fi
 
 if [ $(uname -s) = "Darwin" ]; then
     brew install chezmoi
-    chezmoi init --apply https://github.com/ynny-github/dotfiles.git
 else
     cd ~/installer
     chmod +x chezmoi_installer.sh
-    exec_cmd_with_sudo ./chezmoi_installer.sh -- init --apply https://github.com/ynny-github/dotfiles.git
+    exec_cmd_with_sudo ./chezmoi_installer.sh
 fi
+chezmoi init --apply https://github.com/ynny-github/dotfiles.git
 
 rm -rf ~/installer
