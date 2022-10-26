@@ -1,4 +1,4 @@
-# Installer
+# Dotfiles Installer
 Installer to construct development environment
 ## How to init ?
 ```
