@@ -27,13 +27,10 @@ if [ -f /.dockerenv ]; then
     fi
 fi
 
-if [ $(uname -s) = "Darwin" ]; then
-    brew install chezmoi
-else
-    cd ~/installer
-    chmod +x chezmoi_installer.sh
-    exec_cmd_with_sudo ./chezmoi_installer.sh
-fi
+cd ~/installer
+chmod +x chezmoi_installer.sh
+exec_cmd_with_sudo ./chezmoi_installer.sh
+
 chezmoi init --apply https://github.com/ynny-github/dotfiles.git
 
 rm -rf ~/installer
