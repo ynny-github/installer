@@ -27,10 +27,9 @@ if [ -f /.dockerenv ]; then
     fi
 fi
 
-cd ~/installer
-chmod +x chezmoi_installer.sh
-exec_cmd_with_sudo ./chezmoi_installer.sh
+chmod +x ~/dotfiles/chezmoi_installer.sh
+exec_cmd_with_sudo ~/dotfiles/chezmoi_installer.sh
 
 chezmoi init --apply https://github.com/ynny-github/dotfiles.git
 
-rm -rf ~/installer
+rm -rf ~/dotfiles
