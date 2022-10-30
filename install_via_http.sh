@@ -30,12 +30,13 @@ fi
 cd
 git clone https://github.com/ynny-github/installer.git
 cd installer
-if [ $(uname -s) = "Darwin"]; then
+if [ $(uname -s) = "Darwin" ]; then
     brew install chezmoi
 else
     chmod +x chezmoi_installer.sh
     exec_cmd_with_sudo ./chezmoi_installer.sh
 fi
+
 chezmoi init --apply https://github.com/ynny-github/dotfiles.git
 
 rm -rf ~/installer
