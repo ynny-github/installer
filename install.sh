@@ -1,7 +1,7 @@
 #!/bin/sh
 
 exec_cmd_with_sudo () {
-    if [ "${USER}" = "root" ]; then
+    if [ ${HOME} = "/root" ]; then
         $@
     else
         sudo $@
